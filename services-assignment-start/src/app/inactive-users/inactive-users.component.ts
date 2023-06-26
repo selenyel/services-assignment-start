@@ -10,11 +10,13 @@ import { CountersService } from '../shared/counters.service';
 
 export class InactiveUsersComponent {
   // [y: string]: any;
-  @Input() users: string[];
+  // @Input() users: string[];
   // @Output() userSetToActive = new EventEmitter<number>();
+  users: string[]
 
-
-  constructor(private usersService: UsersService, private countersService: CountersService){}
+  constructor(private usersService: UsersService, private countersService: CountersService){
+    this.users = usersService.inactiveUsers
+  }
 
   onSetToActive(id: number) {
     //this.userSetToActive.emit(id);
